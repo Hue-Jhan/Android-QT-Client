@@ -1,0 +1,160 @@
+package data;
+
+import java.io.*;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import database.*;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Data<T extends Attribute> {
+
+    private List<Example> data = new ArrayList<Example>();   // forse va cambiato
+    private int numberOfExamples;
+    private List<Attribute> attributeSet; // explanatory set, non va cambiato penso
+
+
+    public Data(String tableName) throws SQLException, EmptySetException, DatabaseConnectionException {
+        DbAccess db = new DbAccess();
+        db.initConnection();
+
+        TableSchema schema = new TableSchema(db, tableName);
+        TableData tableData = new TableData(db);
+
+        attributeSet = new LinkedList<Attribute>();
+
+        /*
+        logica da implemenetare:
+        devi far si che ci sia una connessione al database che hai creato su terminale,
+        quindi questa funzione deve prendere i dati che stanno nella tabella playtennis, devi far si che
+        quindi che costruisca i discrete/continuous attribute e che prenda i singoli valori e gli aggiunga
+        a data[][], prima data era una semplice matrice, ora pero è un arraylst di Example, quindi vedi bene
+        la classe example in pkg database e vedi come aggiungerli, probabi,mente dovrai cambiare anche le
+        funzioni in fondo a questa pagina xddd
+
+
+
+        per esempio prima quando leggevamo da file:
+
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            int row = 0;
+            while ((line = br.readLine()) != null && row < n) {
+                String[] values = line.split(",");
+                for (int j = 0; j < m; j++) {
+                    if (j == 1) {               qui prendevamo la colonna con le temperature e comsidervaamo i dati come double
+                        data[row][j] = Double.parseDouble(values[j]);
+                    } else {
+                        data[row][j] = values[j];       qui innvece come semplici stringhe, quindi semplicemente leggevamo i valori da file e li mettevamo nella matrice data
+                    }
+                }
+                row++;
+            }
+
+
+            poi creavamo i vari discrete e continuous attribute
+            attributeSet = new LinkedList<Attribute>();
+
+            String outLookValues[] = new String[3];
+            outLookValues[0] = "overcast";
+            outLookValues[1] = "rain";
+            outLookValues[2] = "sunny";
+            attributeSet.add(new DiscreteAttribute<String>("Outlook", 0, outLookValues));
+
+            attributeSet.add(new ContinuousAttribute("Temperature", 1, 3.2, 38.7));
+
+            String humidityValues[] = new String[2];
+            humidityValues[0] = "high";
+            humidityValues[1] = "normal";
+            attributeSet.add(new DiscreteAttribute<String>("Humidity", 2, humidityValues));
+
+            String windValues[] = new String[2];
+            windValues[0] = "weak";
+            windValues[1] = "strong";
+            attributeSet.add(new DiscreteAttribute<String>("Wind", 3, windValues));
+
+            String tennisValues[] = new String[2];
+            tennisValues[0] = "yes";
+            tennisValues[1] = "no";
+            attributeSet.add(new DiscreteAttribute<String>("PlayTennis", 4, tennisValues));
+
+
+
+
+            buona fortuna : )
+
+            the decision...
+         */
+
+        db.closeConnection();
+    }
+
+    public int getNumberOfExamples() {
+        return numberOfExamples;
+    }
+
+    public int getNumberOfAttributes() {
+        return attributeSet.size();
+    }
+
+    private List<Attribute> getAttributeSchema() {
+        return attributeSet;
+    }
+
+    private Attribute getAttribute(int index) {
+        return attributeSet.get(index);
+    }
+
+    public Object getValue(int exampleIndex, int attributeIndex) {
+        return data[exampleIndex][attributeIndex];
+    }
+
+    public Tuple getItemSet(int index) {  // estrae e crea tuple di item dal data
+        Tuple tuple = new Tuple(attributeSet.size());
+        Iterator<Attribute> it = attributeSet.iterator();
+        int i = 0;
+        while (it.hasNext()) {
+            Attribute attr = it.next();
+            Object value = data[index][i];
+            Item item;
+
+            if (attr instanceof DiscreteAttribute) {
+                DiscreteAttribute<String> dAttr = (DiscreteAttribute<String>) attr;
+                String val = (String) value;
+                item = new DiscreteItem<>(dAttr, val);
+            } else if (attr instanceof ContinuousAttribute) {
+                item = new ContinuousItem((ContinuousAttribute) attr, (Double) value);
+            } else {
+                throw new IllegalArgumentException("Unsupported attribute type");
+            }
+
+            tuple.add(item, i);
+            i++;
+        }
+        return tuple;
+    }
+
+    public String toString() {
+        String s = "";
+        Iterator<Attribute> it = attributeSet.iterator();
+        while (it.hasNext()) {
+            s += it.next().getName();
+            if (it.hasNext()) s += ",";
+        }
+        s += "\n";
+
+        for (int i = 0; i < getNumberOfExamples(); i++) {
+            s += (i + 1) + ":";
+            for (int j = 0; j < getNumberOfAttributes(); j++) {
+                s += getValue(i, j);
+                if (j < getNumberOfAttributes() - 1)
+                    s += ", ";
+            }
+            s += "\n";
+        }
+
+        return s;
+    }
+}
