@@ -1,2 +1,8 @@
 # Android-QT-Client
-Client mode for the Quality Treshold clustering algorithm in android (University Project)
+Client-mode Android App for the Quality Treshold clustering algorithm in java (University Project)
+
+# 📱 App
+a
+
+# 💻 Code
+a
