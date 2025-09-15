@@ -1,11 +1,14 @@
 # Android-QT-Client
-Client-mode Android App for the Quality Treshold clustering algorithm in java (University Project)
+Client-mode Android App for the Quality Treshold clustering algorithm in java (University Project). Original project [here](https://github.com/Hue-Jhan/Quality-Treshold-clustering)
 
 # 📱 App
 
-The App is a simple interface with a dashboard on the bottom. Here's a quick preview:
+The App is a simple interface with a dashboard on the bottom. Here's a quick preview, ignore me trying to spell correctly the port number at the beginning of the video:
 
-<video controls src="media/qtapp.mp4" title="Preview App"></video>
+
+https://github.com/user-attachments/assets/85f6032b-3e3f-4332-9a5b-21a04452f57a
+
+
 
 The dashboard left button is the first section you need to interact with in order to use the app:
 - Once you open the app this screen is going to pop up automatically, so simply connect to the Server previously turned on by inserting IP and Port and clicking the button. If the client doesn't connect within the first 3 seconds it's likely that the server can't be reached because of a network issue or simply because the IP/Port are wrong, so just try again with different options.
@@ -16,5 +19,10 @@ The dashboard left button is the first section you need to interact with in orde
 - The file section can be accessed by pressing the right button on the dashboard, once opened this section will prompt you for the file name, once inserting the correct name and clicking the button the clusters' centroids will be shown in a Vertical ScrollView bar.
 
 
-# 💻 Code & Algorithm
-a
+# 💻 Code
+
+I put an old version of the server (full of warnings and ugly code) in the ```server``` folder, it needs the java database library tho.
+
+The code is based on the Android Studio dashboard template, i could've made my own custom one but i didn't want to waste 1 more minute on this exam. The code is pretty simple, it's just an android version of the client i made in my [original](https://github.com/Hue-Jhan/Quality-Treshold-clustering) project, so for more informations on how the algorithm works or how the Client and server interact, you can visit that page.
+
+All the writings are in italian for obvious reasons.
