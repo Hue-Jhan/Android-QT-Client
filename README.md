@@ -1,5 +1,5 @@
 # Android-QT-Client
-Client-mode Android App for the Quality Treshold clustering algorithm in java (University Project). Original project [here](https://github.com/Hue-Jhan/Quality-Treshold-clustering)
+Client-mode Android App for the Quality Treshold clustering algorithm in java (University Project). You can find the original project with the full documentation [here](https://github.com/Hue-Jhan/Quality-Treshold-clustering).
 
 # 📱 App
 
