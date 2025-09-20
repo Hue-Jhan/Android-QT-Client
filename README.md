@@ -18,11 +18,14 @@ The dashboard left button is the first section you need to interact with in orde
 - On the bottom of the page you can choose to save the clusters in a file with a custom file name, if you don't pick a name but simply press the save button, the file name will be the default one.
 - The file section can be accessed by pressing the right button on the dashboard, once opened this section will prompt you for the file name, once inserting the correct name and clicking the button the clusters' centroids will be shown in a Vertical ScrollView bar.
 
+The full instrcutions are in ```Manuale.pdf```, although they are in italian : (
+
 
 # 💻 Code
 
-I put an old version of the server (full of warnings and ugly code) in the ```server``` folder, it needs the java database library tho.
+I put an old version of the server in the ```server.jar``` file.
 
 The code is based on the Android Studio dashboard template, i could've made my own custom one but i didn't want to waste 1 more minute on this exam. The code is pretty simple, it's just an android version of the client i made in my [original](https://github.com/Hue-Jhan/Quality-Treshold-clustering) project, so for more informations on how the algorithm works or how the Client and server interact, you can visit that page.
 
-All the writings are in italian for obvious reasons.
+The javadoc are included in the ```code/javadoc``` folder, all the writings (as well as comments and print statements) are in italian for obvious reasons.
+
