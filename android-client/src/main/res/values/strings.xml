@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">client2</string>
-    <string name="title_home">Connessione al Server</string>
-    <string name="title_database">Caricamento Cluster da Database</string>
-    <string name="title_file">Caricamento Cluster da File</string>
-</resources>
