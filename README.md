@@ -23,9 +23,9 @@ The full instrcutions are in ```Manuale.pdf```, although they are in italian : (
 
 # 💻 Code
 
-I put an old version of the server in the ```server.jar``` file.
+To run the project just click on the start.bat file in the ```executables``` folder, this file will create a Database and fill it with some useful data, it will also create an account just for the algorithm, in order for the file to access MySql you need to type your MySql password. After completing the Table it will start the server on port 8080. Once the server starts you can open connect the QTApp.apk client to it by typing ip and port.
 
-The code is based on the Android Studio dashboard template, i could've made my own custom one but i didn't want to waste 1 more minute on this exam. The code is pretty simple, it's just an android version of the client i made in my [original](https://github.com/Hue-Jhan/Quality-Treshold-clustering) project, so for more informations on how the algorithm works or how the Client and server interact, you can visit that page.
+The code for the client is based on the Android Studio dashboard template, i could've made my own custom one but i didn't want to waste 1 more minute on this exam. The code is pretty simple, it's just an android version of the client i made in my [original](https://github.com/Hue-Jhan/Quality-Treshold-clustering) project, so for more informations on how the algorithm works or how the Client and server interact, you can visit that page.
 
-The javadoc are included in the ```code/javadoc``` folder, all the writings (as well as comments and print statements) are in italian for obvious reasons.
+The javadoc are included in the ```code/javadoc``` folder, all the writings, as well as comments, print statements and the User Manual are written in italian for obvious reasons.
 
