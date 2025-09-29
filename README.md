@@ -27,5 +27,7 @@ To run the project just click on the start.bat file in the ```executables``` fol
 
 The code for the client is based on the Android Studio dashboard template, i could've made my own custom one but i didn't want to waste 1 more minute on this exam. The code is pretty simple, it's just an android version of the client i made in my [original](https://github.com/Hue-Jhan/Quality-Treshold-clustering) project, so for more informations on how the algorithm works or how the Client and server interact, you can visit that page.
 
+Some of the generics in the server (eg. discrete attr) are wrong, in the client there are a lil too many static values, and the UML schema has many errors.
+
 The javadoc are included in the ```code/javadoc``` folder, all the writings, as well as comments, print statements and the User Manual are written in italian for obvious reasons.
 
